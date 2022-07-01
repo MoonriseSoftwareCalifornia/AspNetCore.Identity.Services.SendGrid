@@ -12,6 +12,9 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageIcon>nuget-icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>SendGrid, Email Provider, Identity</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
