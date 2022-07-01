@@ -15,7 +15,15 @@
     <RepositoryUrl>https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>SendGrid, Email Provider, Identity</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.6" />
