@@ -11,16 +11,20 @@ namespace AspNetCore.Identity.Services.SendGrid.Extensions
     /// </summary>
     public static class ServiceCollectionExtensions
     {
-        public static void AddSendGridEmailProvider(this IServiceCollection services, Action<IServiceProvider, SendGridEmailProviderOptions> configureOptions)
+        public static void AddSendGridEmailProvider(this IServiceCollection services, SendGridEmailProviderOptions sendGridOptions)
         {
-            services.AddOptions<SendGridEmailProviderOptions>().Configure<IServiceProvider>((options, resolver) => configureOptions(resolver, options))
-                .PostConfigure(options =>
+            services.AddOptions<SendGridEmailProviderOptions>().Configure(
+                configureOptions: options =>
                 {
-                    // validation
-                    if (string.IsNullOrWhiteSpace(options.ApiKey))
-                    {
-                        throw new ArgumentNullException(nameof(options.ApiKey));
-                    }
+                    options.ApiKey = sendGridOptions.ApiKey;
+                    options.Auth = sendGridOptions.Auth;
+                    options.UrlPath = sendGridOptions.UrlPath;
+                    options.DefaultFromEmailAddress = sendGridOptions.DefaultFromEmailAddress;
+                    options.HttpErrorAsException = sendGridOptions.HttpErrorAsException;
+                    options.ReliabilitySettings = sendGridOptions.ReliabilitySettings;
+                    options.RequestHeaders = sendGridOptions.RequestHeaders;
+                    options.SandboxMode = sendGridOptions.SandboxMode;
+                    options.Version = sendGridOptions.Version;
                 });
 
             services.TryAddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
