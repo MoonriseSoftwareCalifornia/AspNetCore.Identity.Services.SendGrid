@@ -7,6 +7,28 @@ namespace AspNetCore.Identity.Services.SendGrid
     public class SendGridEmailProviderOptions : SendGridClientOptions
     {
         /// <summary>
+        /// Constructor
+        /// </summary>
+        public SendGridEmailProviderOptions()
+        {
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="apiKey"></param>
+        /// <param name="defaultFromEmailAddress"></param>
+        /// <param name="sandboxMode"></param>
+        public SendGridEmailProviderOptions(string apiKey, string? defaultFromEmailAddress, bool sandboxMode = false)
+        {
+            ApiKey = apiKey;
+            DefaultFromEmailAddress = defaultFromEmailAddress;
+            SandboxMode = sandboxMode;
+        }
+
+
+
+        /// <summary>
         /// Default 'from' email address if none given at send time.
         /// </summary>
         public string? DefaultFromEmailAddress { get; set; }
