@@ -11,9 +11,9 @@ namespace AspNetCore.Identity.Services.SendGrid.Extensions
     /// </summary>
     public static class ServiceCollectionExtensions
     {
-        public static void AddSendGridEmailProvider(this IServiceCollection services, Action<IServiceProvider, SendGridClientOptions> configureOptions)
+        public static void AddSendGridEmailProvider(this IServiceCollection services, Action<IServiceProvider, SendGridEmailProviderOptions> configureOptions)
         {
-            services.AddOptions<SendGridClientOptions>().Configure<IServiceProvider>((options, resolver) => configureOptions(resolver, options))
+            services.AddOptions<SendGridEmailProviderOptions>().Configure<IServiceProvider>((options, resolver) => configureOptions(resolver, options))
                 .PostConfigure(options =>
                 {
                     // validation
