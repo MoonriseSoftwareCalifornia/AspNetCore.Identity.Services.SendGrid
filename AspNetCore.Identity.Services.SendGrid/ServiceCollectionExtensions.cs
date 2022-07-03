@@ -11,9 +11,16 @@ namespace AspNetCore.Identity.Services.SendGrid.Extensions
     /// </summary>
     public static class ServiceCollectionExtensions
     {
+        /// <summary>
+        /// Adds the SendGrid Email Provider to the services collection.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="sendGridOptions"></param>
         public static void AddSendGridEmailProvider(this IServiceCollection services, SendGridEmailProviderOptions sendGridOptions)
         {
-            services.AddOptions<SendGridEmailProviderOptions>().Configure(
+            services.TryAddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
+
+            services.Configure<SendGridEmailProviderOptions>(
                 configureOptions: options =>
                 {
                     options.ApiKey = sendGridOptions.ApiKey;
@@ -26,8 +33,6 @@ namespace AspNetCore.Identity.Services.SendGrid.Extensions
                     options.SandboxMode = sendGridOptions.SandboxMode;
                     options.Version = sendGridOptions.Version;
                 });
-
-            services.TryAddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
         }
 
     }
