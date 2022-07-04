@@ -7,7 +7,7 @@ This is an Email Provider for use with Asp.Net Identity. It is built for .Net 6 
 To add this provider to your own Asp.Net 6 web project, add the following [NuGet package](https://www.nuget.org/packages/AspNetCore.Identity.Services.SendGrid
 
 ```shell
-PM> Install-PackageAspNetCore.Identity.Services.SendGrid
+PM> Install-Package AspNetCore.Identity.Services.SendGrid
 ```
 ## Configure app to support email
 
