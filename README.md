@@ -4,7 +4,7 @@ This is an Email Provider for use with Asp.Net Identity. It is built for .Net 6 
 
 # Installation
 
-To add this provider to your own Asp.Net 6 web project, add the following [NuGet package](https://www.nuget.org/packages/AspNetCore.Identity.Services.SendGrid
+To add this provider to your own Asp.Net 6 web project, add the following [NuGet package](https://www.nuget.org/packages/AspNetCore.Identity.Services.SendGrid)
 
 ```shell
 PM> Install-Package AspNetCore.Identity.Services.SendGrid
@@ -16,6 +16,7 @@ Next add the following code to your startup file:
 ```csharp
 var 
 var sendGridApiKey = builder.Configuration.GetValue<string>("SendGridApiKey");
+// In the following you're adding your SendGrid API key and the default "From" email address.
 var sendGridOptions = new SendGridEmailProviderOptions(sendGridApiKey, "your@emailaddress.com");
 builder.Services.AddSendGridEmailProvider(sendGridOptions);
 ```
