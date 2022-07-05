@@ -19,7 +19,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>This is a SendGrid Email Provider for ASP.NET Core Identity.</Description>
     <PackageProjectUrl>https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid</PackageProjectUrl>
-    <PackageReleaseNotes>Updated Readme.md</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated Readme</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
