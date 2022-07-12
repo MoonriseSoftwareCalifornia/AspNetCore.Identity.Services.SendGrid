@@ -1,9 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using SendGrid;
-using System;
 
 namespace AspNetCore.Identity.Services.SendGrid.Extensions
 {

@@ -16,14 +16,19 @@ namespace AspNetCore.Identity.Services.SendGrid
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="apiKey"></param>
-        /// <param name="defaultFromEmailAddress"></param>
-        /// <param name="sandboxMode"></param>
-        public SendGridEmailProviderOptions(string apiKey, string? defaultFromEmailAddress, bool sandboxMode = false)
+        /// <param name="apiKey">SendGrid API Key</param>
+        /// <param name="defaultFromEmailAddress">Default from email address</param>
+        /// <param name="sandboxMode">SendGrid sandbox mode (does not actually send email)</param>
+        /// <permission cref="logSuccesses">Log when SendGrid indicates success</permission>
+        /// <permission cref="logErrors">Log when SendGrid indicates error</permission>
+        /// <remarks>Logging is sent to the ILogger interface.</remarks>
+        public SendGridEmailProviderOptions(string apiKey, string? defaultFromEmailAddress, bool sandboxMode = false, bool logSuccesses = false, bool logErrors = true)
         {
             ApiKey = apiKey;
             DefaultFromEmailAddress = defaultFromEmailAddress;
             SandboxMode = sandboxMode;
+            LogSuccesses = logSuccesses;
+            LogErrors = logErrors;  
         }
 
 
@@ -37,5 +42,15 @@ namespace AspNetCore.Identity.Services.SendGrid
         /// Set to 'true' if you want'Sand Box Mode' turned on.
         /// </summary>
         public bool SandboxMode { get; set; } = false;
+
+        /// <summary>
+        /// Logs errors to the ILogger
+        /// </summary>
+        public bool LogErrors { get; set; } = true;
+
+        /// <summary>
+        /// Logs successful sends to the ILogger
+        /// </summary>
+        public bool LogSuccesses { get; set; } = false;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -12,18 +13,19 @@ namespace AspNetCore.Identity.Services.SendGrid
     public class SendGridEmailSender : IEmailSender
     {
         private readonly IOptions<SendGridEmailProviderOptions> _options;
+        private readonly ILogger<SendGridEmailSender> _logger;
+
         /// <summary>
         ///     Constructor
         /// </summary>
         /// <param name="options"></param>
-        public SendGridEmailSender(IOptions<SendGridEmailProviderOptions> options)
+        public SendGridEmailSender(IOptions<SendGridEmailProviderOptions> options, ILogger<SendGridEmailSender> logger)
         {
             _options = options;
+            _logger = logger;
         }
 
-        /// <summary>
-        ///     Email response from SendGrid
-        /// </summary>
+        /// <inheritdoc/>
         public Response? Response { get; private set; }
 
         /// <summary>
@@ -48,7 +50,7 @@ namespace AspNetCore.Identity.Services.SendGrid
         /// <returns></returns>
         private Task Execute(string subject, string message, string email, string? emailFrom = null)
         {
-            var client = new SendGridClient(_options.Value.ApiKey);
+            var client = new SendGridClient(_options.Value);
 
             var msg = new SendGridMessage
             {
@@ -59,16 +61,29 @@ namespace AspNetCore.Identity.Services.SendGrid
             };
             msg.AddTo(new EmailAddress(email));
 
-            if (_options.Value.SandboxMode)
-            {
-                msg.MailSettings.SandboxMode.Enable = true;
-            } 
-            
             // Disable click tracking.
             // See https://sendgrid.com/docs/User_Guide/Settings/tracking.html
             msg.SetClickTracking(true, true);
 
-            Response = client.SendEmailAsync(msg).Result;
+            try
+            {
+                Response = client.SendEmailAsync(msg).Result;
+
+                if (Response.IsSuccessStatusCode && _options.Value.LogSuccesses)
+                {
+                    _logger.LogInformation($"Email successfully sent to: {email}; Subject: {subject};");
+                }
+
+                if (!Response.IsSuccessStatusCode && _options.Value.LogErrors)
+                {
+                    _logger.LogError(new Exception($"SendGrid status code: {Response.StatusCode}"), Response.Headers.ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, e.Message);
+            }
+            
 
             return Task.CompletedTask;
         }

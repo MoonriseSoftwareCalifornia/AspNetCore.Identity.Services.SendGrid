@@ -23,4 +23,36 @@ var sendGridOptions = new SendGridEmailProviderOptions(sendGridApiKey, "your@ema
 builder.Services.AddSendGridEmailProvider(sendGridOptions);
 ```
 
-Feedback regarding this provider is greatly appreciated!
+## Debugging Email Problems
+
+It is possible to debug email problems by using the `Response` property of the sender.
+This returns the SendGrid response object which indicates success or error.  Here is
+example code:
+
+```csharp
+var response = ((SendGridEmailSender) _emailSender).Response;
+```
+
+## Logging Email Success and Errors
+
+Often in production you may want the email provider to send errors and/or successful
+email sends to the ILogger.  You can also cause the provider to throw exceptions
+when email send encounters errors.
+
+Here is example code that show how to enable each option:
+
+```csharp
+var options = new SendGridEmailProviderOptions(
+    "SendGrid_API_Key", // Your SendGrid API Key,
+    "foo@foo.com", // Your default 'from' email address
+    false, // Sandbox mode true or false
+    false, // Send successful sends to ILogger (true or false)
+    true // Send errors sends to ILogger (true or false)
+);
+
+options.HttpErrorAsException = true; // Throw exceptions upon SendGrid errors
+```
+
+## Bug Reports and Feedback
+
+Please submit bug reports, feature requests or other feedback to our [issues discussion](https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid/issues).
