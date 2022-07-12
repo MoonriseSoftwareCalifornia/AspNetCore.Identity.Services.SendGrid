@@ -7,9 +7,9 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Company>Cosmos Software LLC</Company>
     <Copyright>Cosmos Software LLC</Copyright>
-    <Version>2.0.3</Version>
-    <AssemblyVersion>2.0.3.1</AssemblyVersion>
-    <FileVersion>2.0.3.1</FileVersion>
+    <Version>2.0.4</Version>
+    <AssemblyVersion>2.0.4.1</AssemblyVersion>
+    <FileVersion>2.0.4.1</FileVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageIcon>nuget-icon.png</PackageIcon>
@@ -19,7 +19,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>This is a SendGrid Email Provider for ASP.NET Core Identity.</Description>
     <PackageProjectUrl>https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid</PackageProjectUrl>
-    <PackageReleaseNotes>Updated Readme</PackageReleaseNotes>
+    <PackageReleaseNotes>Changed from TryAddTransient to AddTransient to ensure injection.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

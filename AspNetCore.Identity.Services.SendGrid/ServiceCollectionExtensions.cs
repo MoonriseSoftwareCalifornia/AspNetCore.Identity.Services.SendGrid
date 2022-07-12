@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using SendGrid;
@@ -18,7 +19,7 @@ namespace AspNetCore.Identity.Services.SendGrid.Extensions
         /// <param name="sendGridOptions"></param>
         public static void AddSendGridEmailProvider(this IServiceCollection services, SendGridEmailProviderOptions sendGridOptions)
         {
-            services.TryAddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
+            services.AddTransient<IEmailSender, SendGridEmailSender>();
 
             services.Configure<SendGridEmailProviderOptions>(
                 configureOptions: options =>

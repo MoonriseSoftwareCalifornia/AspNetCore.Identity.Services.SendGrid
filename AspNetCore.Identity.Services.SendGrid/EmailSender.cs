@@ -9,14 +9,14 @@ namespace AspNetCore.Identity.Services.SendGrid
     /// <summary>
     ///     SendGrid Email sender service
     /// </summary>
-    public class EmailSender : IEmailSender
+    public class SendGridEmailSender : IEmailSender
     {
         private readonly IOptions<SendGridEmailProviderOptions> _options;
         /// <summary>
         ///     Constructor
         /// </summary>
         /// <param name="options"></param>
-        public EmailSender(IOptions<SendGridEmailProviderOptions> options)
+        public SendGridEmailSender(IOptions<SendGridEmailProviderOptions> options)
         {
             _options = options;
         }
