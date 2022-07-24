@@ -19,6 +19,10 @@ Next add the following code to your startup file:
 var sendGridApiKey = builder.Configuration.GetValue<string>("SendGridApiKey");
 // In the following you're adding your SendGrid API key and the default "From" email address.
 var sendGridOptions = new SendGridEmailProviderOptions(sendGridApiKey, "your@emailaddress.com");
+
+// You can put the provider into "Sandbox mode" by adding the following:
+sendGridOptions.SandboxMode = true;
+
 // Add the configured service.
 builder.Services.AddSendGridEmailProvider(sendGridOptions);
 ```
@@ -32,6 +36,11 @@ example code:
 ```csharp
 var response = ((SendGridEmailSender) _emailSender).Response;
 ```
+
+## Sandbox Mode
+
+Putting the provider into [sandbox mode](https://docs.sendgrid.com/for-developers/sending-email/sandbox-mode) will allow you to validate interoperability
+with SendGrid while not actually sending any emails.
 
 ## Logging Email Success and Errors
 
@@ -53,6 +62,6 @@ var options = new SendGridEmailProviderOptions(
 options.HttpErrorAsException = true; // Throw exceptions upon SendGrid errors
 ```
 
-## Bug Reports and Feedback
+## Bug Reports, Featue Requests, and Feedback
 
 Please submit bug reports, feature requests or other feedback to our [issues discussion](https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid/issues).

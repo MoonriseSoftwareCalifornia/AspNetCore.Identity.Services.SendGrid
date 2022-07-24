@@ -31,15 +31,13 @@ namespace AspNetCore.Identity.Services.SendGrid
             LogErrors = logErrors;  
         }
 
-
-
         /// <summary>
         /// Default 'from' email address if none given at send time.
         /// </summary>
         public string? DefaultFromEmailAddress { get; set; }
 
         /// <summary>
-        /// Set to 'true' if you want'Sand Box Mode' turned on.
+        /// Set to 'true' if you want'<see href="https://docs.sendgrid.com/for-developers/sending-email/sandbox-mode">Sandbox Mode</see>' turned on.
         /// </summary>
         public bool SandboxMode { get; set; } = false;
 

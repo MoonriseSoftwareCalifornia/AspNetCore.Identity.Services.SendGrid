@@ -25,6 +25,11 @@ namespace AspNetCore.Identity.Services.SendGrid
             _logger = logger;
         }
 
+        /// <summary>
+        /// Indicates if client is in SendGrid <see href="https://docs.sendgrid.com/for-developers/sending-email/sandbox-mode">sandbox</see> mode.
+        /// </summary>
+        public bool SandboxMode { get { return _options.Value.SandboxMode; } }
+
         /// <inheritdoc/>
         public Response? Response { get; private set; }
 
@@ -64,6 +69,12 @@ namespace AspNetCore.Identity.Services.SendGrid
             // Disable click tracking.
             // See https://sendgrid.com/docs/User_Guide/Settings/tracking.html
             msg.SetClickTracking(true, true);
+
+            // Set the Sandbox mode if on.
+            if (_options.Value.SandboxMode)
+            {
+                msg.SetSandBoxMode(true);
+            }
 
             try
             {
