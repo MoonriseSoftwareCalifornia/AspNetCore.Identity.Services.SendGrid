@@ -8,6 +8,7 @@
     <Company>Cosmos Software LLC</Company>
     <Copyright>Cosmos Software LLC</Copyright>
     <Version>2.0.6</Version>
+    <Authors>Moonrise Software LLC</Authors>
     <AssemblyVersion>2.0.6.1</AssemblyVersion>
     <FileVersion>2.0.6.1</FileVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
