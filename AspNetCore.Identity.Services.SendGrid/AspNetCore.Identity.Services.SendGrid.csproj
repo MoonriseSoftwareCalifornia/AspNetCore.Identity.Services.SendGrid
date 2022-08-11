@@ -7,10 +7,10 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Company>Cosmos Software LLC</Company>
     <Copyright>Cosmos Software LLC</Copyright>
-    <Version>2.0.6</Version>
-    <Authors>Moonrise Software LLC</Authors>
-    <AssemblyVersion>2.0.6.1</AssemblyVersion>
-    <FileVersion>2.0.6.1</FileVersion>
+    <Version>2.0.7</Version>
+    <Authors>toiyabe62</Authors>
+    <AssemblyVersion>2.0.7.1</AssemblyVersion>
+    <FileVersion>2.0.7.1</FileVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageIcon>nuget-icon.png</PackageIcon>
@@ -20,7 +20,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>This is a SendGrid Email Provider for ASP.NET Core Identity.</Description>
     <PackageProjectUrl>https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid</PackageProjectUrl>
-    <PackageReleaseNotes>Added SendGrid sandbox mode property plus NuGet pkg update.</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated SendGrid NuGet pkg.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,10 +31,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.8" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
-    <PackageReference Include="SendGrid" Version="9.28.0" />
+    <PackageReference Include="SendGrid" Version="9.28.1" />
   </ItemGroup>
 
   <ItemGroup>
