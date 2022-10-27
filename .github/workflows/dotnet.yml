@@ -23,6 +23,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build --no-restore -c Release
+    - name: Publish NuGet
+      run: dotnet nuget push /home/runner/work/AspNetCore.Identity.Services.SendGrid/AspNetCore.Identity.Services.SendGrid/AspNetCore.Identity.Services.SendGrid/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
