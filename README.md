@@ -1,4 +1,5 @@
 # SendGrid IEmailSender for ASP.NET Core Identity
+[![.NET Build](https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid/actions/workflows/dotnet.yml/badge.svg)](https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid/actions/workflows/dotnet.yml)
 
 This is a .Net 6 [SendGrid](https://github.com/sendgrid/sendgrid-csharp) [Email Sender](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-6.0&tabs=visual-studio#configure-an-email-provider) for use with Asp.Net Core Identity. It installs as a service in your project's 'Program.cs' or 'Startup.cs' file.
 
