@@ -1,13 +1,13 @@
 # SendGrid IEmailSender for ASP.NET Core Identity
-[![.NET Build](https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid/actions/workflows/dotnet.yml/badge.svg)](https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid/actions/workflows/dotnet.yml)
+[![.NET Build](https://github.com/MoonriseSoftwareCalifornia/AspNetCore.Identity.Services.SendGrid/actions/workflows/dotnet.yml/badge.svg)](https://github.com/MoonriseSoftwareCalifornia/AspNetCore.Identity.Services.SendGrid/actions/workflows/dotnet.yml)
 
 This is a [SendGrid](https://github.com/sendgrid/sendgrid-csharp) [Email Sender](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-6.0&tabs=visual-studio#configure-an-email-provider) 
 for use with Asp.Net Core Identity (.Net 6 or .Net 7). It installs as a service in your project's 'Program.cs' or 'Startup.cs' file.
 
 ## Feedback Welcome!
 
-Please send us feedback regarding this package using our [issues](https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid/issues)
-section of our [project repository](https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid#sendgrid-iemailsender-for-aspnet-core-identity).
+Please send us feedback regarding this package using our [issues](https://github.com/MoonriseSoftwareCalifornia/AspNetCore.Identity.Services.SendGrid/issues)
+section of our [project repository](https://github.com/MoonriseSoftwareCalifornia/AspNetCore.Identity.Services.SendGrid#sendgrid-iemailsender-for-aspnet-core-identity).
 
 ## Installation
 
@@ -71,4 +71,4 @@ options.HttpErrorAsException = true; // Throw exceptions upon SendGrid errors
 
 ## Bug Reports, Featue Requests, and Feedback
 
-Please submit bug reports, feature requests or other feedback to our [issues discussion](https://github.com/CosmosSoftware/AspNetCore.Identity.Services.SendGrid/issues).
+Please submit bug reports, feature requests or other feedback to our [issues discussion](https://github.com/MoonriseSoftwareCalifornia/AspNetCore.Identity.Services.SendGrid/issues).
